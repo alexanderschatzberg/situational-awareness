@@ -3,7 +3,7 @@ import datetime
 import xml.etree.ElementTree as ET
 
 
-def search_arxive(topic: str, days_back: int) -> list[str]:
+def search_arxiv(topic: str, days_back: int) -> list[str]:
     """
     A function that searches arXiv for papers on the given topic pushed in the last `days_back` days.
 
@@ -32,10 +32,9 @@ def search_arxive(topic: str, days_back: int) -> list[str]:
     paper_details = []
 
     if response.status_code == 200:
-        print(response.text)
         paper_details = parse_arxiv_response(response.text)
     else:
-        print(f"Error: {response.status_code}")
+        print(f"Error fetching from the arxiv: {response.status_code}")
 
     return paper_details
 
