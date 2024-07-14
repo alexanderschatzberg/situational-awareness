@@ -12,12 +12,11 @@ def search_arxiv(topic: str, days_back: int) -> list[str]:
 
     base_url = "http://export.arxiv.org/api/query?"
 
-    category = "cs.AI"
     today = datetime.datetime.now(datetime.UTC)
     three_days_ago = today - datetime.timedelta(days=days_back)
 
     # Format final search query
-    search_query = f'cat:{category} AND submittedDate:[{three_days_ago.strftime("%Y%m%d")}0000 TO {today.strftime("%Y%m%d")}2359]'
+    search_query = f'cat:{topic} AND submittedDate:[{three_days_ago.strftime("%Y%m%d")}0000 TO {today.strftime("%Y%m%d")}2359]'
 
     # Define the parameters for the API request
     params = {
@@ -25,12 +24,10 @@ def search_arxiv(topic: str, days_back: int) -> list[str]:
         "start": 0,
     }
 
-    # Make the API request
     response = requests.get(base_url, params=params)
 
     # Parse the response if successful
     paper_details = []
-
     if response.status_code == 200:
         paper_details = parse_arxiv_response(response.text)
     else:
@@ -58,6 +55,8 @@ def parse_arxiv_response(response: str) -> list[dict[str, str]]:
             author.find("arxiv:name", ns).text
             for author in entry.findall("arxiv:author", ns)
         ]
+        url = entry.find("arxiv:link", ns).attrib["href"]
+
         abstract = entry.find("arxiv:summary", ns).text
         published_date = entry.find("arxiv:published", ns).text
 
@@ -65,11 +64,11 @@ def parse_arxiv_response(response: str) -> list[dict[str, str]]:
         papers.append(
             {
                 "title": title,
-                "authors": authors,
                 "abstract": abstract.strip().replace(
                     "\n", " "
                 ),  # Remove leading/trailing whitespace and newlines
                 "published_date": published_date,
+                "url": url,
             }
         )
 
