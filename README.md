@@ -1,7 +1,7 @@
 # situational-awareness
-A tool to aggregate information on specific topics for researchers and professionals 
+A tool to aggregate information on specific topics for researchers and professionals.
 
-Information is retrieved from the sources relevant to user's request via API call or scraping, then passed to a language model (Google Gemini). The language model summarizes the information into a digestale format. 
+Information is retrieved from the sources relevant to user's request via API calls or scraping. The information, along with the user's  provided background, is then passed to a Google Gemini model. The Gemini model returns a summary relevant to the user's background. 
 
 ## Info Sources (looking to add more, arxiv is just the start)
 
