@@ -12,6 +12,6 @@ def aggregate(topics: list[str], days_back: int) -> list[str]:
 
     info = []
     for topic in topics:
-        info.append(search_arxiv(topic, days_back))
+        info.extend(search_arxiv(topic, days_back))
 
     return info
