@@ -10,12 +10,15 @@ Information is retrieved from the sources relevant to user's request via API cal
 ## How to Use 
 
 Setup: 
-- Gemini API key (https://ai.google.dev/gemini-api/docs/api-key)
-- credentials.py: make a file called credentials.py in `src` directory
+- Clone the repository onto your machine 
+- Get a Gemini API key (https://ai.google.dev/gemini-api/docs/api-key)
+- Create a credentials.py file in the src directory  
     - It should have a function named get_gemini_key() that returns the string of your Gemini api key 
-- Set up and activate conda env from `env.yml`
+    - This file is ignored by git to avoid sharing your private key
+- Set up conda env by running the command `conda env create -f env.yml` from the root of the project
 
 Use: 
+- Activate your conda enviornment via `conda activate situational_awareness`
 - Configure `main.py` to best meet your use case. 
 - Run the main file, and you should be done. 
 
