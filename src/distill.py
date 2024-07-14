@@ -16,7 +16,7 @@ def distill(
     genai.configure(api_key=gemini_key)
     model = genai.GenerativeModel(model_name)
 
-    general_instruction = "General Instruction: You are an AI model designed to summarize recently published information. Your summary should be tailored to the user's background. You should provide links to any relevant articles."
+    general_instruction = "General Instruction: You are an AI model designed to summarize recently published information. Your summary should be tailored to the user's background."
 
     response = model.generate_content(
         general_instruction
