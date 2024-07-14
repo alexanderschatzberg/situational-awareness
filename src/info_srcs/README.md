@@ -6,4 +6,4 @@ Funcitonality to aggregate information from the various sources
 Coordinates searching the the sources. 
 
 ## Sources 
-- arxive.org 
+- arxiv.org 
