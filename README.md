@@ -23,3 +23,10 @@ Use:
 - Run the main file, and you should be done. 
 
 Contact me (afs223@cornell.edu) in the event of an error or with suggestions for improving this tool. 
+
+
+## Next Steps in Development 
+
+- Continue to add more sources. These will likely include social platforms, other databases of published research, and niche sources of info. 
+- Implement a smart searching system. Eventually, the tool should be able to decide where and what to search for based on the users' biography.
+- Make a GUI or website for the project in order to make it more accessible. 
