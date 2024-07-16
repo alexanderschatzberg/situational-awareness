@@ -5,8 +5,6 @@
         "arxiv": {
             "categories": ["cs.AI", "cs.CE", "cs.ET", "econ.EM", "econ.GN", "stat.ML"]
         },
-        "newsapi": {
-            "keywords": ["artificial intelligence", "economics", "technology"]
-        }
+        "perplexity": 1
     }
 }
