@@ -1,11 +1,12 @@
 # situational-awareness
 A tool to aggregate information on specific topics for researchers and professionals.
 
-Information is retrieved from the sources relevant to user's request via API calls or scraping. The information, along with the user's  provided background, is then passed to a Google Gemini model. The Gemini model returns a summary relevant to the user's background. 
+Information is retrieved from the sources relevant to user's request via API calls or scraping. The information, along with the user's  provided background, is then passed to a Google Gemini model. The Gemini model returns a summary relevant to the user's background that is saved to a markdown file in the `output ` directory.  
 
 ## Info Sources (looking to add more, arxiv is just the start)
 
-- arxiv.org: Thank you to arXiv for use of its open access interoperability.
+- arxiv.org for technical research. Thank you to arXiv for use of its open access interoperability.
+- newsapi.ai for more general news. 
 
 ## How to Use 
 
@@ -19,8 +20,10 @@ Setup:
 
 Use: 
 - Activate your conda enviornment via `conda activate situational_awareness`
-- Configure `main.py` to best meet your use case. 
-- Run the main file, and check the output directory!
+- Configure `user_profile.json` to best meet your use case. 
+  - For arxive.org: See see https://arxiv.org/category_taxonomy for a complete list of topics. These are for academic papers. 
+  - For news api: add whatever keywords you find interesting! If you leave the array blank, the news api won't be included in the search. 
+- Run `main.py`, and check the output directory!
 
 Contact me (afs223@cornell.edu) in the event of an error or with suggestions for improving this tool. 
 
