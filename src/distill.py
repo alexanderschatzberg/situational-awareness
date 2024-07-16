@@ -11,11 +11,12 @@ def distill(
     Accepts the user's background (str) and the list of text bodies(list[str]) and returns a single piece of markdown.
     Markdown is produced by a gemini model (specified by the model parameter)
     """
-    file = open(f"output/distilled_info-{datetime.date.today().strftime("%Y%m%d%H%M%S")}.md", "w")
-
+    
     gemini_key: str = get_gemini_key()
     genai.configure(api_key=gemini_key)
-    model = genai.GenerativeModel(model_name)
+    model = genai.GenerativeModel(model_name, safety_settings={
+        
+    })
 
     general_instruction = "General Instruction: You are an AI model designed to summarize recently published information. Your summary should be tailored to the user's background."
 
@@ -30,9 +31,4 @@ def distill(
         + str(text_body)
     )
 
-    file.write(response.text)
-
-    ## Print out the titles and links to the info that was distilled
-    file.write("\n\n## Source Information: \n")
-    for i in text_body:
-        file.write((i["title"] + ": " + i["url"] + "\n"))
+    return response.text
