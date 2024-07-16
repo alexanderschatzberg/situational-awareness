@@ -1,5 +1,6 @@
 import requests
 import datetime
+
 import xml.etree.ElementTree as ET
 
 
@@ -13,15 +14,16 @@ def search_arxiv(topic: str, days_back: int) -> list[str]:
     base_url = "http://export.arxiv.org/api/query?"
 
     today = datetime.datetime.now(datetime.UTC)
-    three_days_ago = today - datetime.timedelta(days=days_back)
+    x_days_ago = today - datetime.timedelta(days=days_back)
 
     # Format final search query
-    search_query = f'cat:{topic} AND submittedDate:[{three_days_ago.strftime("%Y%m%d")}0000 TO {today.strftime("%Y%m%d")}2359]'
+    search_query = f'cat:{topic} AND submittedDate:[{x_days_ago.strftime("%Y%m%d")}0000 TO {today.strftime("%Y%m%d")}2359]'
 
     # Define the parameters for the API request
     params = {
         "search_query": search_query,
         "start": 0,
+        "max_results": 1000,  # Set the maximum number of results to retrieve
     }
 
     response = requests.get(base_url, params=params)

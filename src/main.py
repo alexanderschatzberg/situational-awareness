@@ -1,9 +1,17 @@
-import urllib, urllib.request
 from distill import distill
 from info_srcs.aggregate import aggregate
 
+# Change these values as desired
 
-def main():
+# see https://arxiv.org/category_taxonomy for a complete list of topics
+topics: list[str] = ["cs.AI", "cs.CE", "cs.ET", "econ.EM", "econ.GN", "stat.ML"] 
+
+user_bg = "I'm a student with a background in computer science. I'm interested in staying up to date with the latest research in artifical intelligence, general economics that could inform my decisions as an investor, and new any new technologies that show promise. I'm also developing a tool that aggregates information from multiple sources and summerizes it for the user using an LLM, so I'm interested in any research that could help me with that. Thank you!"
+days_back = 7  # Number of days back to search
+
+
+
+def main(topics: list[str], user_bg: str, days_back: int):
     """
     Main function that orchestrates the entire pipeline.
     Takes a list of topics, the user's background, and the number of days back to search
@@ -11,21 +19,8 @@ def main():
     Passes heap of info + user background to gemini model for relevant summerization
     """
 
-    # Change these values as desired
-    topics: list[str] = [
-        "astro-ph.EP",
-        "astro-ph.HE",
-        "astro-ph.CO",
-        "astro-ph.GA",
-        "astro-ph.IM",
-        "astro-ph.SR",
-    ]  # see https://arxiv.org/category_taxonomy for a complete list of topics
-
-    user_bg = "I'm an astronomer who studies supernovae and kilonovae. My observatory is particularly interested in 1A SNe, any research related to kilonovae, and general instrumental methods that could be applied to our facility."
-    days_back = 4  # Number of days back to search
-
     print("Searching sources for relevant information...")
-    info = aggregate(topics, days_back)
+    info: list[dict] = aggregate(topics, days_back)
 
     print(f"Found {len(info)} papers.")
 
@@ -34,12 +29,7 @@ def main():
     distill(
         user_bg=user_bg,
         text_body=info,
-    )  # Print out is implemented in distill.py
-
-    ## Print out the titles and links to the info that was distilled
-    for i in info:
-        print(i["title"] + ": " + i["url"])
-
+    )  # Generates md file with distilled info 
 
 if __name__ == "__main__":
-    main()
+    main(topics, user_bg, days_back)
