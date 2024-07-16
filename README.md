@@ -1,11 +1,7 @@
 # situational-awareness
 A tool to aggregate information on specific topics for researchers and professionals.
 
-Information is retrieved from the sources relevant to user's request via API calls or scraping. The information, along with the user's  provided background, is then passed to a Google Gemini model. The Gemini model returns a summary relevant to the user's background. 
-
-## Info Sources (looking to add more, arxiv is just the start)
-
-- arxiv.org: Thank you to arXiv for use of its open access interoperability.
+Papers from relevant topics published within a specified number of days are queried from the arxiv. The information, along with the user's provided background, is then passed to a Google Gemini model. The Gemini model returns a summary relevant to the user's background. 
 
 ## How to Use 
 
@@ -27,6 +23,5 @@ Contact me (afs223@cornell.edu) in the event of an error or with suggestions for
 
 ## Next Steps in Development 
 
-- Continue to add more sources. These will likely include social platforms, other databases of published research, and niche sources of info. 
-- Implement a smart searching system. Eventually, the tool should be able to decide where and what to search for based on the users' biography.
+- Integrate Perplexity search for more general news/information. 
 - Make a GUI or website (probably Django) for the project in order to make it more accessible. 
