@@ -13,7 +13,7 @@ Information is retrieved from the sources relevant to user's request via API cal
 Setup: 
 - Clone the repository onto your machine 
 - Get a Gemini API key (https://ai.google.dev/gemini-api/docs/api-key)
-- Get a Perplexity API key (https://www.perplexity.ai/settings/api) if you also want Perplexity insights. This is optional. 
+- [Optional, Not Implemented Yet] Get a Perplexity API key (https://www.perplexity.ai/settings/api) if you also want Perplexity insights. This is optional, and actually 
 - Create a credentials.py file in the src directory  
     - It should have two functions, one named get_gemini_key() and one named get_perplexity_key(). They should return the string of your respective API keys.
     - This file is ignored by git to avoid sharing your private key
@@ -34,10 +34,9 @@ Contact me (afs223@cornell.edu) in the event of an error or with suggestions for
 - days_since: How many days back to search. Pretty self explanitory. 
 - sources: 
   - arxive: categories should be a list of all th categories that you're interested in searching. A list of available categories can be found here: https://arxiv.org/category_taxonomy
-  - Perplexity: Set to 1 if you'd also like a perplexity summary (requires an API key) or 0 if don't want one
+  - [NOT IMPLEMENTED YET] Perplexity: Set to 1 if you'd also like a perplexity summary (requires an API key) or 0 if don't want one
 
 ## Next Steps in Development 
 
-- Continue to add more sources. These will likely include social platforms, other databases of published research, and niche sources of info. 
-- Implement a smart searching system. Eventually, the tool should be able to decide where and what to search for based on the users' biography.
+- Wait for Perplexity to make citation based AI available. Everything is implemented on our end - their API is still under development. Once they come out with a better API, we'll use that for more general news aggregation. 
 - Make a GUI or website (probably Django) for the project in order to make it more accessible. 
