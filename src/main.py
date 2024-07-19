@@ -28,11 +28,11 @@ def main(user_profile: str = "user_profile.json"):
         text_body=info,
     )  # Generates md file with distilled info 
 
-    print("Searching for relevant news articles...")
+    # TODO: Uncomment this block once the Perplexity API is available and pass output to write_output
+    # print("Searching for relevant news articles...")
+    # perplexity_res = search_perplexity(user_bg)
 
-    perplexity_res = search_perplexity(user_bg)
-
-    write_output(perplexity_res, gemini_summary, info)
+    write_output(gemini_summary, info)
 
     print("Output has been written!.")
 
