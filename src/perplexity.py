@@ -36,6 +36,4 @@ def search_perplexity(user_bg: str) -> str:
     #     print(f"Error: {e}")
     #     print(f"Response content: {response.text}")
     #     return None
-    return "THIS IS A MOCK PERPLEXITY RESPONSE."
-
-print(search_perplexity("I am a student studing computer science and artifical intelligence. "))
+    return "Perplexity has not yet made their API available for public use. Please check back later."
