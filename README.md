@@ -7,6 +7,7 @@ Information is retrieved from the sources relevant to user's request via API cal
 
 - arxiv.org for technical research. Thank you to arXiv for use of its open access interoperability.
 - perplexity.ai for more general news. They do a fantastic job of summerizing more mainstream info, so no need to reinvent the wheel here. 
+  - Their API is still under development, so we're still waiting on them to release a useable version. 
 
 ## How to Use 
 
