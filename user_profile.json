@@ -1,0 +1,10 @@
+{
+    "user_bg": "I'm a student with a background in computer science. I'm interested in staying up to date with the latest research in artifical intelligence, general economics that could inform my decisions as an investor, and new any new technologies that show promise. I'm also developing a tool that aggregates information from multiple sources and summerizes it for the user using an LLM, so I'm interested in any research that could help me with that. Thank you!",
+    "days_back": 10,
+    "sources": {
+        "arxiv": {
+            "categories": ["cs.AI", "cs.CE", "cs.ET", "econ.EM", "econ.GN", "stat.ML"]
+        },
+        "perplexity": 1
+    }
+}

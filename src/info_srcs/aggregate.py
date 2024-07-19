@@ -1,17 +1,17 @@
 from .arxiv import search_arxiv
 
-
-def aggregate(topics: list[str], days_back: int) -> list[str]:
+def aggregate(sources: list[dict], days_back: int, user_bg: str) -> list[str]:
     """
-    A function that aggregates information on provided topics from the sources in `info_srcs` to be passed to the distillment pipeline.
-    Information is gathered from the sources via webscrapping or API calls.
-    topics: a list of the topics that you want to search. The list from the arxiv can be found here: https://arxiv.org/category_taxonomy
-    days_back: the number of days back to search for papers
+    A function that aggregates information on provided topics from the arxiv and Perplexity to be passed to the distillment pipeline.
+    Args are passed from user_profile.py
     """
-    print("Aggregating information on the following topics:", topics)
+    print("Aggregating information from the following sources: ", str(sources.keys()))
 
     info = []
-    for topic in topics:
-        info.extend(search_arxiv(topic, days_back))
+
+    # Search arxiv 
+    arxiv_categories = sources["arxiv"]["categories"]
+    for category in arxiv_categories:
+        info.extend(search_arxiv(category, days_back))
 
     return info
